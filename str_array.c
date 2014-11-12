@@ -13,9 +13,9 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with cSploit.  If not, see <http://www.gnu.org/licenses/>.
- * 
  */
 
+#include <stdlib.h>
 #include <stdint.h>
 #include <assert.h>
 #include <string.h>
