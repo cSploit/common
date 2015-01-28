@@ -68,7 +68,7 @@ static int sortedarray_search_index(array *a, uint32_t id) {
 int sortedarray_ins(array *a, comparable_item *i) {
   register comparable_item **itmp;
   
-  itmp = realloc(a->data, a->size +1);
+  itmp = realloc(a->data, (a->size +1) * sizeof(comparable_item *));
   
   if(!itmp) {
     print( ERROR, "realloc: %s", strerror(errno));
