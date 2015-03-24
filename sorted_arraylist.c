@@ -41,20 +41,26 @@ static int sortedarray_search_index(array *a, uint32_t id) {
   imin = 0;
   imax = a->size - 1;
   
-  while(imin <= imax) {
+  while(imin < imax) {
   
     imid = (imax - imin)/2 + imin; // avoid overflow
     
     cur = (comparable_item *) a->data[imid];
     
     if(cur->id < id) {
-      imin = imid +1;
-    } else if(cur->id > id) {
-      imax = imid -1;
+      imin = imid + 1;
     } else {
-      return imid;
+      imax = imid;
     }
   }
+  
+  if(imax != imin)
+    return -1;
+  
+  cur = (comparable_item *) a->data[imax];
+  
+  if (cur->id == id)
+    return imax;
   
   return -1;
 }
