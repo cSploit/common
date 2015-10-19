@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([libcsploit-common], [1.0.0], [])
+AC_INIT([libcsploit-common], [1.0], [])
 AC_CONFIG_SRCDIR([message.c])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([foreign])
@@ -14,7 +14,9 @@ AC_PROG_CC
 
 # Checks for libraries.
 AC_CHECK_LIB([dl], [dlopen], [], [AC_MSG_ERROR([libdl not found])])
-AC_CHECK_LIB([pthread], [pthread_create], [], [AC_MSG_ERROR([libpthread not found])])
+AC_CHECK_FUNCS([pthread_create], [], [
+  AC_CHECK_LIB([pthread], [pthread_create], [], [
+    AC_MSG_ERROR([libpthread not found])])])
 
 # Checks for header files.
 AC_CHECK_HEADERS([stddef.h stdint.h stdlib.h string.h unistd.h], [], [AC_MSG_ERROR([some header is missing])])
