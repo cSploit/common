@@ -6,7 +6,6 @@ AC_INIT([libcsploit-common], [1.0], [])
 AC_CONFIG_SRCDIR([src/message.c])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([foreign])
-AM_EXTRA_RECURSIVE_TARGETS([foo])
 
 LT_INIT
 
